@@ -2,10 +2,7 @@ package com.chrispassold.kotlinsample.di.component
 
 import android.app.Application
 import com.chrispassold.kotlinsample.AppController
-import com.chrispassold.kotlinsample.di.module.ActivityModule
-import com.chrispassold.kotlinsample.di.module.ApiModule
-import com.chrispassold.kotlinsample.di.module.DbModule
-import com.chrispassold.kotlinsample.di.module.ViewModelModule
+import com.chrispassold.kotlinsample.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -25,6 +22,7 @@ import javax.inject.Singleton
         DbModule::class,
         ViewModelModule::class,
         ActivityModule::class,
+        FragmentModule::class,
         AndroidSupportInjectionModule::class]
 )
 @Singleton

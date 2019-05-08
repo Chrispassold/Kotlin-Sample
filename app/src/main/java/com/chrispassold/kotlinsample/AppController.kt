@@ -2,6 +2,7 @@ package com.chrispassold.kotlinsample
 
 import android.app.Activity
 import android.app.Application
+import com.chrispassold.kotlinsample.di.component.DaggerAppComponent
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
@@ -24,9 +25,9 @@ class AppController : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-//        DaggerAppComponent.builder()
-//            .application(this)
-//            .build()
-//            .inject(this)
+        DaggerAppComponent.builder()
+            .application(this)
+            .build()
+            .inject(this)
     }
 }
