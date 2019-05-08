@@ -6,6 +6,10 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    generateStubs = true
+}
+
 android {
     compileSdkVersion 28
 
@@ -73,13 +77,14 @@ dependencies {
     implementation 'android.arch.persistence.room:rxjava2:1.1.1'
     kapt 'android.arch.persistence.room:compiler:1.1.1'
 
+    /* Dagger2 - default dependency */
+    implementation 'com.google.dagger:dagger:2.17'
+    kapt 'com.google.dagger:dagger-compiler:2.17'
+
     /* Dagger2 - We are going to use dagger.android which includes
      * support for Activity and fragment injection so we need to include
      * the following dependencies */
     implementation 'com.google.dagger:dagger-android:2.17'
     implementation 'com.google.dagger:dagger-android-support:2.17'
     kapt 'com.google.dagger:dagger-android-processor:2.17'
-
-    /* Dagger2 - default dependency */
-    kapt 'com.google.dagger:dagger-compiler:2.17'
 }
