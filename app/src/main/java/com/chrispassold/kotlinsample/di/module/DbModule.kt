@@ -3,7 +3,7 @@ package com.chrispassold.kotlinsample.di.module
 import android.app.Application
 import android.arch.persistence.room.Room
 import android.support.annotation.NonNull
-import com.chrispassold.kotlinsample.database.AppDatabase
+import com.chrispassold.kotlinsample.data.local.AppDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

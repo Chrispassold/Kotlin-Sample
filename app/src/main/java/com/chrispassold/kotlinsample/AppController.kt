@@ -12,6 +12,7 @@ import javax.inject.Inject
  * This way a DispatchingAndroidInjector is injected which is
  * then returned when an injector for an activity is requested.
  * */
+//https://github.com/anitaa1990/TrailersApp/tree/kotlin_support
 class AppController : Application(), HasActivityInjector {
 
     @Inject

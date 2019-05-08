@@ -1,6 +1,7 @@
 package com.chrispassold.kotlinsample.di.module
 
 import android.app.Application
+import com.chrispassold.kotlinsample.data.interceptor.RequestInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -51,7 +52,7 @@ class ApiModule {
         val httpClient = OkHttpClient.Builder()
         httpClient.cache(cache)
         httpClient.addInterceptor(logging)
-        //httpClient.addNetworkInterceptor(RequestInterceptor())
+        httpClient.addNetworkInterceptor(RequestInterceptor())
         httpClient.connectTimeout(30, TimeUnit.SECONDS)
         httpClient.readTimeout(30, TimeUnit.SECONDS)
         return httpClient.build()
