@@ -1,7 +1,7 @@
 package com.chrispassold.kotlinsample.di.module
 
 import android.app.Application
-import com.chrispassold.kotlinsample.data.interceptor.RequestInterceptor
+import com.chrispassold.kotlinsample.data.remote.interceptor.RequestInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

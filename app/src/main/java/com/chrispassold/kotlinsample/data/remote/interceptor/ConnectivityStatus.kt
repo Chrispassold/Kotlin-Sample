@@ -1,4 +1,4 @@
-package com.chrispassold.kotlinsample.data.interceptor
+package com.chrispassold.kotlinsample.data.remote.interceptor
 
 import android.content.Context
 import android.content.ContextWrapper
