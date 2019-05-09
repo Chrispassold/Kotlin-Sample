@@ -36,7 +36,6 @@ protected constructor() {
                         Resource.error(t.message!!, it)
                     }
                 }
-
                 .observeOn(AndroidSchedulers.mainThread())
 
         } else {
