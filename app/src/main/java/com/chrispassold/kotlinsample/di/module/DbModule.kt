@@ -4,6 +4,7 @@ import android.app.Application
 import android.arch.persistence.room.Room
 import android.support.annotation.NonNull
 import com.chrispassold.kotlinsample.data.local.AppDatabase
+import com.chrispassold.kotlinsample.data.local.dao.SampleDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,10 +18,12 @@ class DbModule {
      * */
     @Provides
     @Singleton
-    fun provideDatabase(@NonNull application: Application): AppDatabase {
-        return Room.databaseBuilder(
-            application,
-            AppDatabase::class.java, "DatabaseName.db"
-        ).allowMainThreadQueries().build()
-    }
+    fun provideDatabase(@NonNull application: Application): AppDatabase = Room.databaseBuilder(
+        application,
+        AppDatabase::class.java, "DatabaseName.db"
+    ).allowMainThreadQueries().build()
+
+    @Provides
+    @Singleton
+    internal fun provideSampleDao(appDatabase: AppDatabase): SampleDao = appDatabase.sampleDao()
 }

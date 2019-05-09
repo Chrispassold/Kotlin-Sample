@@ -2,7 +2,15 @@ package com.chrispassold.kotlinsample.data.local
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
+import com.chrispassold.kotlinsample.data.local.converter.SampleListTypeConverter
+import com.chrispassold.kotlinsample.data.local.dao.SampleDao
 import com.chrispassold.kotlinsample.data.local.entity.SampleEntity
 
 @Database(entities = [SampleEntity::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase()
+@TypeConverters(
+    SampleListTypeConverter::class
+)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun sampleDao(): SampleDao
+}

@@ -14,7 +14,5 @@ abstract class BaseViewModel : ViewModel(), AppConstants {
         compositeDisposable.add(disposable)
     }
 
-    fun onStop() {
-        compositeDisposable.clear()
-    }
+    fun onStop() = compositeDisposable.clear()
 }

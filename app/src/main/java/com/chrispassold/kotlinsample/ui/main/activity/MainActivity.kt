@@ -5,21 +5,21 @@ import android.os.PersistableBundle
 import android.support.v4.app.Fragment
 import com.chrispassold.kotlinsample.ui.base.BaseActivity
 import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
 class MainActivity : BaseActivity(), HasSupportFragmentInjector {
 
-    //private lateinit var binding: MainActivityBinding
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-
         AndroidInjection.inject(this)
-      //  binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun supportFragmentInjector(): DispatchingAndroidInjector<Fragment> {
+        return dispatchingAndroidInjector
     }
 }

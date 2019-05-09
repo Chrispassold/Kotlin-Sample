@@ -1,7 +1,11 @@
 package com.chrispassold.kotlinsample.di.module
 
 import android.app.Application
+import com.chrispassold.kotlinsample.AppConstants
+import com.chrispassold.kotlinsample.data.remote.api.SampleApiService
+import com.chrispassold.kotlinsample.data.remote.interceptor.NetworkInterceptor
 import com.chrispassold.kotlinsample.data.remote.interceptor.RequestInterceptor
+import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -26,8 +30,18 @@ class ApiModule {
     @Singleton
     internal fun provideGson(): Gson {
         val gsonBuilder = GsonBuilder()
+            .setPrettyPrinting()
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+            .excludeFieldsWithoutExposeAnnotation()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+
         return gsonBuilder.create()
     }
+
+    @Provides
+    @Singleton
+    internal fun provideNetworkInterceptor(application: Application): NetworkInterceptor =
+        NetworkInterceptor(application.applicationContext)
 
     /*
      * The method returns the Cache object
@@ -67,8 +81,13 @@ class ApiModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            //.baseUrl("https://api.themoviedb.org/3/")
+            .baseUrl(AppConstants.BASE_URL)
             .client(okHttpClient)
             .build()
     }
+
+    @Provides
+    @Singleton
+    internal fun provideSampleApiService(retrofit: Retrofit): SampleApiService =
+        retrofit.create(SampleApiService::class.java)
 }

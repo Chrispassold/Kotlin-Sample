@@ -41,6 +41,12 @@ interface AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
+        @BindsInstance
+        fun apiModule(apiModule: ApiModule): Builder
+
+        @BindsInstance
+        fun dbModule(dbModule: DbModule): Builder
+
         fun build(): AppComponent
     }
 
