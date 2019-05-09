@@ -1,8 +1,8 @@
 package com.chrispassold.kotlinsample.di.module
 
 import android.app.Application
-import android.arch.persistence.room.Room
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
+import androidx.room.Room
 import com.chrispassold.kotlinsample.data.local.AppDatabase
 import com.chrispassold.kotlinsample.data.local.dao.SampleDao
 import dagger.Module

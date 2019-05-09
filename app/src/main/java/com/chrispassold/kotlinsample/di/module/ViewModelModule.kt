@@ -1,7 +1,7 @@
 package com.chrispassold.kotlinsample.di.module
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.chrispassold.kotlinsample.factory.ViewModelFactory
 import com.chrispassold.kotlinsample.ui.main.viewmodel.SampleViewModel
 import dagger.Binds

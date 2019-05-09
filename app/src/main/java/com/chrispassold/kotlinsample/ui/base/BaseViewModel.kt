@@ -1,6 +1,6 @@
 package com.chrispassold.kotlinsample.ui.base
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.chrispassold.kotlinsample.AppConstants
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

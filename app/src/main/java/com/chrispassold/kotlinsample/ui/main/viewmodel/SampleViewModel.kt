@@ -1,7 +1,7 @@
 package com.chrispassold.kotlinsample.ui.main.viewmodel
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.chrispassold.kotlinsample.data.Resource
 import com.chrispassold.kotlinsample.data.local.dao.SampleDao
 import com.chrispassold.kotlinsample.data.local.entity.SampleEntity

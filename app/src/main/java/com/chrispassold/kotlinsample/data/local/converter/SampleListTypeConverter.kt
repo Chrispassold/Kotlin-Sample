@@ -1,6 +1,6 @@
 package com.chrispassold.kotlinsample.data.local.converter
 
-import android.arch.persistence.room.TypeConverter
+import androidx.room.TypeConverter
 import com.chrispassold.kotlinsample.data.local.entity.SampleEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

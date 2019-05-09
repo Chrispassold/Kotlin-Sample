@@ -1,6 +1,6 @@
 package com.chrispassold.kotlinsample.data.local.dao
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import com.chrispassold.kotlinsample.data.local.entity.SampleEntity
 import io.reactivex.Flowable
 
