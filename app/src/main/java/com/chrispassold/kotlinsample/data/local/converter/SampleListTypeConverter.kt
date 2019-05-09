@@ -6,7 +6,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import javax.inject.Inject
 
-class SampleListTypeConverter @Inject constructor(private val gson: Gson) {
+class SampleListTypeConverter {
+
+    @Inject
+    lateinit var gson: Gson
 
     @TypeConverter
     fun fromString(value: String): List<SampleEntity>? {
